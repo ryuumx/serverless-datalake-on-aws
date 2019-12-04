@@ -24,7 +24,7 @@ Forked from Author: [Unni Pillai](github.com/unnipillai/techfest-building-server
 |Lab 1: Ingest and Storage |[Open Lab :arrow_forward:](./lab1)|
 |Lab 2: Glue Data Catalog |[Open Lab :arrow_forward:](./lab2)|
 |Lab 3: Serverless Spark on Glue  |[Open Lab :arrow_forward:](./lab3)|
-|Lab 5: Visualize Data |[Open Lab :arrow_forward:](./lab5)|
+|Lab 4: Visualize Data with Quicksight |[Open Lab :arrow_forward:](./lab4)|
 
 # Clean Up
 
