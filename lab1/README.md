@@ -178,17 +178,13 @@ Once the tools send ~ 100,000 messages, you can **Stop sending data to Kinesis**
 
 Let's see if Firehose has successfully delivered data to your S3 bucket **YOUR_USERNAME-datalake-demo-bucket**. 
 
-* Open the S3 Console again: https://s3.console.aws.amazon.com/s3/home?region=us-east-1
+1. Open the S3 Console again: https://s3.console.aws.amazon.com/s3/home?region=us-east-1
    * Note that your region should be back to `us-east-1`
 * Open your bucket **YOUR_USERNAME-datalake-demo-bucket** and the **data** folder.
 * You will find a subfolder called **raw**. Click through the date-partitioned folders (2019 > 09 > 27 > 15) until you find a list of files named *aws-labseries-demo-stream-xx-xx-xx*.
 
 ![Firehose output](./img/firehose-output.png)
 
-
-## Extra Credit!
-
-1. Create your own custom data template to generate data streams similar to your current project applications. KDG extends from [Faker.js](https://github.com/marak/Faker.js/). You can use this to generate stub names, timestamps, addresses etc.
 
 2. Open and view the contents of the data files. 
 
@@ -198,14 +194,53 @@ Let's see if Firehose has successfully delivered data to your S3 bucket **YOUR_U
    ...
    ```
    
-   How can we find all unique activities with `"device_id":  10`?
+## Extra Credit!
+
+Let's try building a dashboard to visualize our log data. How can we find all unique activities with `"device_id":  10`?
+
+1. Sign up for Quicksight. Subscribe to the Enterprise plan. 
+      ![Signup](./img/qs00-signup.png)
+.
+2. Enable auto-discover for S3 and select the datalake-demo-bucket you have created
+      ![Add permissions](./img/qs01-add-s3-permissions.png)
+      
+      ![Select bucket](./img/qs01-select-s3-bucket.png)
+
+2. Add a data set. Go to Manage Data > New data set > S3
+      1. Add a Data Source Name: My Firehose Log Data
+      2. Upload a manifest file. You can use the provided [qs-manifest.json](https://raw.githubusercontent.com/czhc/serverless-datalake-on-aws/master/lab1/qs-manifest.json). Download and edit the manifest file with the correct S3 bucket name.
+      
+      ![Edit manifest](./img/qs02-edit-manifest.png)
+      
+      3. Upload the file to Quicksight and Connect
+      
+3. Once completed, click Visualize. 
+4. Select a Vertical Bar Chart. What does this graph tell you?
+
+      ![Chart unfiltered](./img/qs03-unfiltered.png)
+
+5. From the left navigation, select on Filter. Add a filter using the + button.
+      1. Select device_id > Filter List > Value `10`
+      2. Click Apply
+   
+      ![Add filter](./img/qs03-add-filter.png)
+      
+6. You now have a vertical bar chart which shows the activity distribution for all events that belong to `"device_id" = 10`!
+
+
 
 ![Quicksight Visualization](./img/quicksight-2.png)
 
-3. How can you send data from a simple web application such as a Wordpress website? Hint: Kinesis has [Client Libraries](https://docs.aws.amazon.com/streams/latest/dev/developing-consumers-with-kcl.html) in Java, Node, .NET, Python and Ruby or a Kinesis Agent package
+
+## More Credits
+
+1. Create your own custom data template to generate data streams similar to your current project applications. KDG extends from [Faker.js](https://github.com/marak/Faker.js/). You can use this to generate stub names, timestamps, addresses etc.
+
+2. How can you send data from a simple web application such as a Wordpress website? Hint: Kinesis has [Client Libraries](https://docs.aws.amazon.com/streams/latest/dev/developing-consumers-with-kcl.html) in Java, Node, .NET, Python and Ruby or a Kinesis Agent package
    * Python Client Library Integration Sample [:arrow_forward:](https://docs.aws.amazon.com/code-samples/latest/catalog/python-kinesis-firehose_to_s3.py.html)
    * Configuring Kinesis Agent in Linux [:arrow_forward:](https://docs.aws.amazon.com/firehose/latest/dev/writing-with-agents.html)
    * Configuring Kinesis Agent in Windows [:arrow_forward:](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/getting-started.html#getting-started-installation) 
+   
 # You're done!
 
 
