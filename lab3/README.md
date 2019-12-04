@@ -9,7 +9,7 @@ The reference dataset contains a list of tracks, track titles and artist names.
 
 You will be using Glue to perform basic transformations such as filtering and joining. 
 
-## 0. Upload and Crawl a Reference Dataset
+## 1. Upload and Crawl a Reference Dataset
 In this step, you will upload and crawl a new Glue dataset from a manual JSON file.
 
 1. Open your S3 Bucket **YOUR_USERNAME-datalake-demo-bucket*: https://s3.console.aws.amazon.com/s3/home?region=us-east-1#
@@ -32,7 +32,7 @@ In this step, you will upload and crawl a new Glue dataset from a manual JSON fi
 	2. Notice how this creates two new Glue tables for `raw` and `reference_data`. 
 	
 
-## 1. Create Glue Development Endpoint
+## 2. Create Glue Development Endpoint
 In this step you will be creating a glue endpoint to interactively develop Glue ETL scripts using PySpark.
 
 * GoTo : https://console.aws.amazon.com/glue/home?region=us-east-1#etl:tab=devEndpoints
@@ -55,7 +55,7 @@ It will take close to 10 mins for the Dev Endpoint to be **READY**.
 You have to wait for this step to complete before moving to next step.
 
 
-## 2. Create SageMaker Notebooks (Jupyter) for Glue Dev Endpoints
+## 3. Create SageMaker Notebooks (Jupyter) for Glue Dev Endpoints
 
 In this step, we will launch notebook instances to use as our workspace. We will be using Sagemaker notebook instances in this lab. 
 
@@ -107,5 +107,5 @@ Once the ETL script has ran successfully, you can inspect the output of the Spar
 
 ## Extra Credits
 
-1. Explore more built-in transformations provided by Glue: [Built-in Transforms :arrow-forward:](https://docs.aws.amazon.com/glue/latest/dg/built-in-transforms.html)
+1. Explore more built-in transformations provided by Glue: [Built-in Transforms :arrow_forward:](https://docs.aws.amazon.com/glue/latest/dg/built-in-transforms.html)
 
