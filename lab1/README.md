@@ -227,9 +227,9 @@ Let's try building a dashboard to visualize our log data. How can we find all un
       
 6. You now have a vertical bar chart which shows the activity distribution for all events that belong to `"device_id" = 10`!
 
+      ![Filtered](./img/qs03-filtered.png)
 
 
-![Quicksight Visualization](./img/quicksight-2.png)
 
 
 ## More Credits
