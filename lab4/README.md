@@ -1,7 +1,8 @@
-# Part 5: Visualize
+# Part 4: Visualize Data with Amazon Quicksight
 
 ## Setting Up QuickSight
-In this step we will visualize it using QuickSight
+
+In this step we will visualize your datasets using QuickSight
 
 Login to Amazon Quick Sight Console & complete the registration & sign-up
 
