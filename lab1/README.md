@@ -202,7 +202,10 @@ Let's see if Firehose has successfully delivered data to your S3 bucket **YOUR_U
 
 ![Quicksight Visualization](./img/quicksight-2.png)
 
-3. How can you send data from a simple web application such as a Wordpress website? Hint: Kinesis has [Client Libraries](https://docs.aws.amazon.com/streams/latest/dev/developing-consumers-with-kcl.html) in Java, Node, .NET, Python and Ruby
+3. How can you send data from a simple web application such as a Wordpress website? Hint: Kinesis has [Client Libraries](https://docs.aws.amazon.com/streams/latest/dev/developing-consumers-with-kcl.html) in Java, Node, .NET, Python and Ruby or a Kinesis Agent package
+   * Python Client Library Integration Sample [:arrow_forward:](https://docs.aws.amazon.com/code-samples/latest/catalog/python-kinesis-firehose_to_s3.py.html)
+   * Configuring Kinesis Agent in Linux [:arrow_forward:](https://docs.aws.amazon.com/firehose/latest/dev/writing-with-agents.html)
+   * Configuring Kinesis Agent in Windows [:arrow_forward:](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/getting-started.html#getting-started-installation) 
 # You're done!
 
 
