@@ -94,6 +94,7 @@ In the meantime, check out the [differences](https://docs.aws.amazon.com/glue/la
 **Follow the instructions on the notebook**
 	  - Read and understand the instructions, they explain important Glue concepts
 
+
 ## Validate - Transformed / Processed data has arrived in S3
 
 Once the ETL script has ran successfully, you can inspect the output of the SparkSQL transformations.
@@ -102,4 +103,9 @@ Once the ETL script has ran successfully, you can inspect the output of the Spar
 2. Inspect the new Glue table `processed_data` using Athena
 
 ![output data](./img/processed_data.png)
+
+
+## Extra Credits
+
+1. Explore more built-in transformations provided by Glue: [Built-in Transforms :arrow-forward:](https://docs.aws.amazon.com/glue/latest/dg/built-in-transforms.html)
 
