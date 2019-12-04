@@ -91,8 +91,11 @@ In the meantime, check out the [differences](https://docs.aws.amazon.com/glue/la
     This is the name of the kernel Jupyter will use to execute code blocks in this notebook
 
 
-**Follow the instructions on the notebook**
-	  - Read and understand the instructions, they explain important Glue concepts
+## 4. Follow the instructions on the notebook**
+
+The SageMaker notebook takes you through how to load, transform and write output data using Glue APIs and DynamicFrames.
+Read and understand the instructions as they explain important Glue concepts.
+
 
 
 ## Validate - Transformed / Processed data has arrived in S3
