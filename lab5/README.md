@@ -62,7 +62,6 @@ In this step, we will create a visualization that show us which users are listen
 If you hover on dark blue patches on the heatmap you will see that those particular users are listening to same track repeatedly.
 
 
-
 ### Visualization 2: Tree map of most played Artist Names
 
 In this step we will create a visualization that shows who are the most played artists
@@ -78,3 +77,11 @@ In this step we will create a visualization that shows who are the most played a
 
 Play around and explore Amazon QuickSight Console. Try out filters, other visualization types, etc.
 
+
+## Exploring additional QuickSight features
+
+1. Using ML-Powered [Anomaly Detection](https://docs.aws.amazon.com/quicksight/latest/user/anomaly-detection-using.html) and [Forecasting](https://docs.aws.amazon.com/quicksight/latest/user/forecasts-and-whatifs.html?icmpid=docs-quicksight-whatsnew)
+2. Configuring [Autonarratives](https://docs.aws.amazon.com/quicksight/latest/user/using-narratives-expression-editor.html)
+
+
+Checkout the [Quicksight Youtube Channel](https://www.youtube.com/channel/UCqtI0cKSreCwUUuKOlA1tow) for more! :arrow_forward:
