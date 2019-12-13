@@ -137,8 +137,13 @@ Let's filter for a single timeseries chart.
 
 ## Custom Insights using Autonarratives
 
+Autonarrative is a natural-language summary for text descriptions to simplify understanding a visual. [See a list of Autonarrative options](https://docs.aws.amazon.com/quicksight/latest/user/auto-narratives.html)
+
 1. On the Growth rate insight, click on the dropdown icon and **Customize narrative**
-2. Autonarrative is a natural-language summary for text descriptions to simplify understanding a visual. [See a list of Autonarrative options](https://docs.aws.amazon.com/quicksight/latest/user/auto-narratives.html)
+2. Build your own insights using Computations, Parameters and Functions.
+
+![config-autonarrative](./img/configure-narrative.png)
+
 
 ## Exploring Anomalies 
 
