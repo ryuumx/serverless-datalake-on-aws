@@ -129,7 +129,7 @@ In this step, we will create a Workflow to execute our Job
 
 6. You are done! Wait for the time to past and meet your scheduled minute.
 	1. You can inspect the Job History tab to check on the execution of a Job
-
+	![Running history](./img/running_history.png)
 
 ## Extra Credits
 
