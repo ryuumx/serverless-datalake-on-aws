@@ -38,7 +38,7 @@ Welcome to the QuickSight console!
         * Tables: contain the data you can visualize : select - **processed_data**
         * Click - **Select**
     * Finish data set creation:
-        * Select - **Directly query your data**
+        * Select - **Import to SPICE for quicker analytic**
 	* SPICE is Amazon QuickSight's in-memory optimized calculation engine, designed specifically for fast, ad hoc data visualization
         * Click **Visualize**
 
