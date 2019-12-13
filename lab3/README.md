@@ -1,6 +1,6 @@
 # Part 3 : Data Transformation using serverless Spark 
 
-(To perform this lab using Sagemaker Notebooks and Dev Endpoints instead, go [here](../lab3_nb/))
+_(To perform this lab using Sagemaker Notebooks and Dev Endpoints instead, go [here](../lab3_nb/))_
 
 A Glue Development Endpoint is an environment for you to develop and test your Glue scripts / jobs.
 Configuring a Development Endpoint spins up the necessary network and machines to simplify ETL scripting with AWS resources in a VPC. 
@@ -135,5 +135,5 @@ In this step, we will create a Workflow to execute our Job
 
 1. Explore more built-in transformations provided by Glue: [Built-in Transforms :arrow_forward:](https://docs.aws.amazon.com/glue/latest/dg/built-in-transforms.html)
 2. Explore other Glue configurations such as Bookmarks to pass job state parameters.
-3. Explore the Glue developer guide here: [PDF](https://docs.aws.amazon.com/glue/latest/dg/glue-dg.pdf)
+3. Explore the Glue developer guide here: [PDF :arrow_forward:](https://docs.aws.amazon.com/glue/latest/dg/glue-dg.pdf) 
 
