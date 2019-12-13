@@ -112,16 +112,20 @@ In this step, we will create a Workflow to execute our Job
 3. Select your workflow **JoinProcessedDataHourly** and look at the workspace at the bottom panel.
 4. Click on **Add trigger**
 	1. We must first add a trigger to start the job. We can create and reuse triggers for different Workflows.
+
+	![Add trigger](./img/add_trigger.png)
+
 	2. Click on **Add new**
 	3. Fill in the following details for a trigger:
 		1. Name: **Hourly**
 		2. Trigger type: **Schedule**
 		3. Frequency: **Hourly**
 		4. Start minute: **00** (or any nearest minute you'd like to observe)
-	![Add trigger](./img/add_trigger.png)
 
 5. Click on **Add note**
 	1. Select your Job: `JoinRawWithReference`
+
+	![Add job to crawler](./img/add_job_to_crawler.png)
 
 6. You are done! Wait for the time to past and meet your scheduled minute.
 	1. You can inspect the Job History tab to check on the execution of a Job
