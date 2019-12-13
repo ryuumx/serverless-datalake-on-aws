@@ -48,7 +48,7 @@ In this step you will be creating a transformation to join and filter the `raw` 
 	* Script file name: join_data.py
 	* S3 path where the script is stored: **s3://<YOUR_USERNAME>-datalake-demo-bucket/jobs/**
 	* Temporary directory: **s3://<YOUR_USERNAME>-datalake-demo-bucket/tmp/**
-	* Monitoring options: [/] Job metrics, Continuous logging and Spark UI
+	* Monitoring options: :ballot_box_with_check: Job metrics, Continuous logging and Spark UI
 	* Amazon S3 prefix for Spark event logs: **s3://<YOUR_USERNAME>-datalake-demo-bucket/logs**
 	* Security configuration, script libraries and job parameters:
 		* Maximum capacity: **2**
