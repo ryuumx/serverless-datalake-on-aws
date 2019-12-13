@@ -63,7 +63,7 @@ In this step you will be creating a transformation to join and filter the `raw` 
 	* Format: Parquet
 	* Target path: **s3://<YOUR_USERNAME>-datalake-demo-bucket/data/processed/**
 7. Map the source columns to target columns
-	* Delete (Click on X) the columns for *partition_0*,*partition_1*,*partition_2*,*partition_3*
+	* Delete :x: the columns for *partition_0*,*partition_1*,*partition_2*,*partition_3*
 	* Add column: add columns for **track_name** and **artist_name**. Select the column type as **string**
 8. **Save job and edit script**
 
