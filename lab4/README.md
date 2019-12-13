@@ -79,10 +79,89 @@ In this step we will create a visualization that shows who are the most played a
 Play around and explore Amazon QuickSight Console. Try out filters, other visualization types, etc.
 
 
+## Using ML Insights for Forecasting and Anomaly Detection
+
+In this step, we will explore generating narratives for data sets using built-in ML capabilities in Quicksight.
+ML Insights have [minimum requirements](https://docs.aws.amazon.com/quicksight/latest/user/ml-data-set-requirements.html) for data sets based on granularity and data size.
+
+For this lab, we will use a sample dataset that looks like this. 
+
+|Date|Product Categories|Geo|Revenue|
+|:-:|:--:|:--:|:--:|
+|1/1/17|Digital|Turkey|1738.04848|
+|1/1/17|Movies|Turkey|3359.74848|
+
+### Prepare the data set
+
+1. Download the sample data .csv [here](./qs-sample.csv)
+2. Add a New Data Set here: [Manage Data sets](https://us-east-1.quicksight.aws.amazon.com/sn/data-sets)
+	1. Click on New data set
+	2. Upload a file
+	![upload-a-file](./img/upload-a-file.png)
+	3. Review the file contents and click on Next > Visualize data
+	![sample-details](./img/sample-details.png)
+3. Build a simple time series Visual for the data set.
+	1. Click on the Line Chart visual at the bottom panel Visual types
+	2. Click on **Date**, **Revenue** and **Product Categories** in that order.
+	
+	![timeseries-sample](./img/timeseries-sample.png)
+	
+### Explore ML-powered Insights
+
+1. Click on the **Insights** tab on the left navigation.
+2. Observe the **Suggested insights** on the side panel. You may see suggested insights for:
+	1. Top 2 performing Product Categories for _School Supplies (+12.27%)_ and _Home Services (+0.6%)_
+	2. Total Revenue compounded growth rate of _0.06%_ over 30 days
+	3. Significant Day-Over-Day Revenue decrease on Nov 17
+	![Insights](./img/insights.png)
+	
+3. Add the Suggested Insights to your Sheet by clicking on :heavy_plus_sign:
+
+## Filtering Data using Filters
+
+Let's filter for a single timeseries chart. 
+
+1. Click on Filter in the side navigation.
+2. Select the :heavy_plus_sign: and **Product Categories**
+	1. Select Filter type: **Filter list**
+	2. Search and select **School Supplies**
+	3. Click **Apply**
+	![Single TS](./img/single-ts.png)
+	
+3. In the visual, select the v-shaped dropdown, and select **Hide "other" categories**
+
+	![Hide others](./img/hide-others.png)
+
+4. Explore other options for filtering data, such as *Custom filters for String matching*, *OR operators* and *Datetime range filters*
+	
+
+## Custom Insights using Autonarratives
+
+1. On the Growth rate insight, click on the dropdown icon and **Customize narrative**
+2. Autonarrative is a natural-language summary for text descriptions to simplify understanding a visual. [See a list of Autonarrative options](https://docs.aws.amazon.com/quicksight/latest/user/auto-narratives.html)
+
+## Exploring Anomalies 
+
+1. In the Insights tab again, click on **Add anomaly to sheet**
+	1. In Configure anomaly detection, select **Analyze all combinations of these categories**
+	2. Select **Run now**.
+2. The result of the Anomaly Detection suggests a _lower than expected Revenue for Sept 27 2018_
+
+	![anomaly-result](./img/anomaly-result.png)
+
+3. Click on **Explore Anomalies** to filter Anomaly analysis by Severity, Direction and more. 
+
+## Forecasting
+
+1. Change the timeseries visual into a timeseries aggregated by Revenue. Click on the visual and remove the **Color: Product Categories** dimension.
+2. In the visual, click on the dropdown menu, and select **Add forecast**
+3. Observe the generated Revenue forecast including values for *Expected*, *Upper bound* and *Lower bound*.
+
+	![Forecast](./img/forecast.png)
+	
+4. Edit the forecast for parameters on *Periods forward*, *Periods backward*, *Interval* and *Seasonality* to fine-tune the predicted values.
+
+
 ## Exploring additional QuickSight features
-
-1. Using ML-Powered [Anomaly Detection](https://docs.aws.amazon.com/quicksight/latest/user/anomaly-detection-using.html) and [Forecasting](https://docs.aws.amazon.com/quicksight/latest/user/forecasts-and-whatifs.html?icmpid=docs-quicksight-whatsnew)
-2. Configuring [Autonarratives](https://docs.aws.amazon.com/quicksight/latest/user/using-narratives-expression-editor.html)
-
 
 Checkout the [Quicksight Youtube Channel](https://www.youtube.com/channel/UCqtI0cKSreCwUUuKOlA1tow) for more! :arrow_forward:
