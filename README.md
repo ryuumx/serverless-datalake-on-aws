@@ -25,7 +25,7 @@ Forked from Author: [Unni Pillai](github.com/unnipillai/techfest-building-server
 |Lab 2: Glue Data Catalog |[Open Lab :arrow_forward:](./lab2)|
 |Lab 3: Serverless Spark ETL on Glue  |[Open Lab :arrow_forward:](./lab3)|
 |Lab 3_nb: Serverless Spark ETL on Glue (using Sagemaker Notebook)  |[Open Lab :arrow_forward:](./lab3_nb)|
-|Lab 4: Visualize Data with Quicksight |[Open Lab :arrow_forward:](./lab4)|
+|Lab 4: Visualize Data with built-in ML transformations |[Open Lab :arrow_forward:](./lab4)|
 
 # Clean Up
 
