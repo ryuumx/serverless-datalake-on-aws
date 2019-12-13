@@ -1,4 +1,7 @@
 # Part 3 : Data Transformation using serverless Spark 
+
+(To perform this lab using Sagemaker Notebooks and Dev Endpoints instead, go [here](../lab3_nb/))
+
 A Glue Development Endpoint is an environment for you to develop and test your Glue scripts / jobs.
 Configuring a Development Endpoint spins up the necessary network and machines to simplify ETL scripting with AWS resources in a VPC. 
 
