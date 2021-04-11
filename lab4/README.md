@@ -1,4 +1,4 @@
-# Part 4: Visualize Data with Amazon Quicksight
+# Part 4: Visualize Data with Quicksight
 
 ## Setting Up QuickSight
 
@@ -35,7 +35,7 @@ Welcome to the QuickSight console!
         * Data source name: **awslabs_db**
     * Choose your table:
         * Database: contain sets of tables: select - **awslabs_db**
-        * Tables: contain the data you can visualize : select - **processed_data**
+        * Tables: contain the data you can visualize : select - **processed**
         * Click - **Select**
     * Finish data set creation:
         * Select - **Import to SPICE for quicker analytic**
@@ -55,7 +55,7 @@ In this step, we will create a visualization that show us which users are listen
 * On top-left panel - **Fields list**
     * Click -  **device_id**
     * Click - **track_name**
-* Just above the visualization you should see **Field wells** : [**Rows - device_id**] [**Columns - track_name**]
+* Just above the visualization you should see **Field wells**: [**Rows - device_id**] [**Columns - track_name**]
 
 ![Heatmap](./img/qs-heatmap.png)
 
@@ -103,6 +103,7 @@ For this lab, we will use a sample dataset that looks like this.
 3. Build a simple time series Visual for the data set.
 	1. Click on the Line Chart visual at the bottom panel Visual types
 	2. Click on **Date**, **Revenue** and **Product Categories** in that order.
+    3. Wait for the data to get loaded.
 	
 	![timeseries-sample](./img/timeseries-sample.png)
 	
@@ -116,6 +117,8 @@ For this lab, we will use a sample dataset that looks like this.
 	![Insights](./img/insights.png)
 	
 3. Add the Suggested Insights to your Sheet by clicking on :heavy_plus_sign:
+
+4. Wait for the data to get populated.
 
 ## Filtering Data using Filters
 
@@ -139,7 +142,7 @@ Let's filter for a single timeseries chart.
 
 Autonarrative is a natural-language summary for text descriptions to simplify understanding a visual. [See a list of Autonarrative options](https://docs.aws.amazon.com/quicksight/latest/user/auto-narratives.html)
 
-1. On the Growth rate insight, click on the dropdown icon and **Customize narrative**
+1. On the Growth rate insight, click on the option (...) icon and **Customize narrative**
 2. Build your own insights using Computations, Parameters and Functions.
 
 ![config-autonarrative](./img/configure-narrative.png)
@@ -148,18 +151,18 @@ Autonarrative is a natural-language summary for text descriptions to simplify un
 ## Exploring Anomalies 
 
 1. In the Insights tab again, click on **Add anomaly to sheet**
-	1. In Configure anomaly detection, select **Analyze all combinations of these categories**
+	1. In Configure anomaly detection, under **Combinations to be analyzed**, select **All**
 	2. Select **Run now**.
 2. The result of the Anomaly Detection suggests a _lower than expected Revenue for Sept 27 2018_
 
 	![anomaly-result](./img/anomaly-result.png)
 
-3. Click on **Explore Anomalies** to filter Anomaly analysis by Severity, Direction and more. 
+3. Click on option (...) icon and **Explore Anomalies** to filter Anomaly analysis by Severity, Direction and more. 
 
 ## Forecasting
 
 1. Change the timeseries visual into a timeseries aggregated by Revenue. Click on the visual and remove the **Color: Product Categories** dimension.
-2. In the visual, click on the dropdown menu, and select **Add forecast**
+2. In the visual, click on the option (...) icon, and select **Add forecast**
 3. Observe the generated Revenue forecast including values for *Expected*, *Upper bound* and *Lower bound*.
 
 	![Forecast](./img/forecast.png)

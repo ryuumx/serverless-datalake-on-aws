@@ -8,7 +8,7 @@ Forked from Author: [Unni Pillai](github.com/unnipillai/techfest-building-server
 * Build a data processing pipeline and Data Lake using Amazon S3 for storing data
 * Use Amazon Kinesis for real-time streaming data
 * Use AWS Glue to automatically catalog datasets
-* Run interactive ETL scripts in an Amazon SageMaker Jupyter notebook connected to an AWS Glue development endpoint
+* Run interactive ETL scripts (in an Amazon SageMaker Jupyter notebook) connected to an AWS Glue development endpoint
 * Query data using Amazon Athena & visualize it using Amazon QuickSight
 
 # Pre-requisites:  
@@ -21,11 +21,15 @@ Forked from Author: [Unni Pillai](github.com/unnipillai/techfest-building-server
 
 |Content| Link|
 |:-----|:--:|
-|Lab 1: Ingest and Storage |[Open Lab :arrow_forward:](./lab1)|
-|Lab 2: Glue Data Catalog |[Open Lab :arrow_forward:](./lab2)|
-|Lab 3: Serverless Spark ETL on Glue  |[Open Lab :arrow_forward:](./lab3)|
-|Lab 3_nb: Serverless Spark ETL on Glue (using Sagemaker Notebook)  |[Open Lab :arrow_forward:](./lab3_nb)|
-|Lab 4: Visualize Data with built-in ML transformations |[Open Lab :arrow_forward:](./lab4)|
+|Lab 1: Ingest and Store |[Open Lab :arrow_forward:](./lab1)|
+|Lab 2: Catalog Data |[Open Lab :arrow_forward:](./lab2)|
+|Lab 3: Transform Data on Glue  |[Open Lab :arrow_forward:](./lab3)|
+|Lab 3_nb: Transform Data on Glue (using Sagemaker Notebook)  |[Open Lab :arrow_forward:](./lab3_nb)|
+|Lab 4: Visualize Data with Quicksight |[Open Lab :arrow_forward:](./lab4)|
+|Extra 1: Monitor AWS Logs |[Open Lab :arrow_forward:](./extras/extra_lab_1)|
+|Extra 2: Secure on Lake Formation |[Open Lab :arrow_forward:](./extras/extra_lab_2)|
+|Extra 3: Serve with Lambda |[Open Lab :arrow_forward:](./extras/extra_lab_3)|
+|Extra 4: Warehouse on Redshift |[Open Lab :arrow_forward:](./extras/extra_lab_4)|
 
 # Clean Up
 
@@ -65,9 +69,6 @@ Make sure you bring down / delete all resources created as part of this lab
 * Close QuickSight account
 	* GoTo: https://us-east-1.quicksight.aws.amazon.com/sn/admin#permissions
 	* Click: **Unsubscribe**
-* Cognito Userpool
-	* GoTo: https://us-west-2.console.aws.amazon.com/cognito/users/?region=us-west-2#/
-
 * [extra] VPC Endpoint: 
 	* GoTo: https://console.aws.amazon.com/vpc/home?region=us-east-1#Endpoints:sort=vpcEndpointId
 

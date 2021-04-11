@@ -1,4 +1,4 @@
-# Part 3 : Data Transformation using serverless Spark 
+# Part 3: Transform Data on Glue
 _(To perform this lab using Glue ETL Jobs and Workflows instead, go [here](../lab3/))_
 
 A Glue Development Endpoint is an environment for you to develop and test your Glue scripts / jobs.
@@ -22,16 +22,16 @@ In this step, you will upload and crawl a new Glue dataset from a manual JSON fi
          │
          ├── data/
          │     └── raw/
-         │     └── reference_data/
+         │     └── reference/
          │     
          │
          └── (..other project assets: code etc.)
     ```
-3. Download the following file [tracks_list.json](https://raw.githubusercontent.com/czhc/serverless-datalake-on-aws/master/lab3/tracks_list.json), and upload it into the `reference_data/` folder.
+3. Download the following file [tracks_list.json](https://raw.githubusercontent.com/czhc/serverless-datalake-on-aws/master/lab3/tracks_list.json), and upload it into the `reference/` folder.
 
 4. Open the Glue crawler console. Select the crawler you have created **CrawlDataFromKDG** and **Run crawler**.
 	1. The crawlwer picks up new data in the S3 bucket and automatically creates new tables in the database
-	2. Notice how this creates two new Glue tables for `raw` and `reference_data`. 
+	2. Notice how this creates two new Glue tables for `raw` and `reference`. 
 	
 
 ## 2. Create Glue Development Endpoint
@@ -77,7 +77,7 @@ In the meantime, check out the [differences](https://docs.aws.amazon.com/glue/la
 
 ## Upload a Jupyter Notebook on your SageMaker instance
 
-- Download and save this file locally on your laptop: [datalake-notebook.ipynb](https://raw.githubusercontent.com/czhc/serverless-datalake-on-aws/master/lab3/datalake-notebook.ipynb)
+- Download and save this file locally on your laptop: [datalake-notebook.ipynb](https://raw.githubusercontent.com/ryuumx/serverless-datalake-on-aws/master/lab3/datalake-notebook.ipynb)
 
 - In the Notebooks console, click on the notebook name you have just created: - **aws-glue-notebook1**
 
@@ -104,8 +104,8 @@ Read and understand the instructions as they explain important Glue concepts.
 
 Once the ETL script has ran successfully, you can inspect the output of the SparkSQL transformations.
 
-1. Look into your S3 Bucket: **YOUR_USERNAME-datalake-demo-bucket/data/processed_data**
-2. Inspect the new Glue table `processed_data` using Athena
+1. Look into your S3 Bucket: **YOUR_USERNAME-datalake-demo-bucket/data/processed**
+2. Inspect the new Glue table `processed` using Athena
 
 ![output data](./img/processed_data.png)
 

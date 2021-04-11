@@ -2,20 +2,20 @@
 
 ![Architecture](./img/architecture.png)
 
-1. Create a bucket `<username>-s3-dto-logs`. 
+1. Create a bucket `YOUR_USERNAME-s3-dto-logs`. 
     1. This bucket should only be accessible to audit-level users. You can set this as Bucket policy or add a Deny rule in your IAM policies.
 
-2. Create a source s3 bucket `<username-s3-demo-bucket` to store source data, or you can modify an existing bucket. 
+2. Create a source s3 bucket `YOUR_USERNAME-s3-demo-bucket` to store source data, or you can modify an existing bucket. 
     1. In step 2: Configure options, turn on Server access logging. 
 
     ![step 2](./img/1_configure_access_logging_2.png)
 
-    Set the target bucket as the `-dto-logs` bucket you created in **Step 1**.
+    Set the target bucket as the `YOUR_USERNAME-dto-logs` bucket you created in **Step 1**.
 
-3. Perform some tasks to upload/remove data from the source bucket `-demo-bucket`. For example, download / add / or delete objects from the bucket.
+3. Perform some tasks to upload/remove data from the source bucket `YOUR_USERNAME-demo-bucket`. For example, download / add / or delete objects from the bucket.
 
 
-    Inspect the `-dto-log` bucket. You should now see new logs in your target bucket. 
+    Inspect the `YOUR_USERNAME-dto-log` bucket. You should now see new logs in your target bucket. 
     An access log structure looks like this: 
 
     ```      
@@ -91,7 +91,7 @@
          SUM(objectsize) AS downloadtotal_bytes,
          SUM(bytessent + objectsize) AS total_bytes
     FROM s3_access_logs_db.dto_logs
-    WHERE bucket = 'cedchan-s3-dto-demo-bucket'
+    WHERE bucket = 'YOUR_USERNAME-dto-logs'
             AND parse_datetime(requestdatetime,'dd/MMM/yyyy:HH:mm:ss Z') 
                 BETWEEN parse_datetime('2019-11-01','yyyy-MM-dd') AND parse_datetime('2019-11-30','yyyy-MM-dd')
     GROUP BY  remoteip, useragent;

@@ -1,4 +1,4 @@
-# Part 1: Ingest and Storage
+# Part 1: Ingest and Store
 
 ## 1. Create an S3 Bucket
 
@@ -6,10 +6,10 @@ In this step, we will navigate to S3 Console and create the S3 bucket used throu
 
 First, navigate to S3 Console & create a new bucket in us-east-1 region :
 
-* Open the s3 console : https://s3.console.aws.amazon.com/s3/home?region=us-east-1
+* Open the s3 console: https://s3.console.aws.amazon.com/s3/home?region=us-east-1
 * Click on **:heavy_plus_sign: Create bucket**
-    * Bucket Name : **YOUR_USERNAME-datalake-demo-bucket**
-    * Region : **US EAST (N. Virginia)**
+    * Bucket Name: **YOUR_USERNAME-datalake-demo-bucket**
+    * Region: **US EAST (N. Virginia)**
     * and proceed to create the bucket: **Create** (bottom left)
 
 We now have an S3 bucket named `YOUR_USERNAME-datalake-demo-bucket`. 
@@ -23,9 +23,9 @@ We will use this folder structure for this lab series.
 *--YOUR_USERNAME-datalake-demo-bucket
          │
          ├── data/
-         │     └── (raw_data)
-         │     └── (reference_data)
-         │     └── (training_data)
+         │     └── (raw)
+         │     └── (reference)
+         │     └── (training)
          │
          └── (..other project assets: code etc.)
          
@@ -40,7 +40,6 @@ To create a subfolder,
    * You can choose *AES-256* SSE with Amazon S3-Managed Keys for this step
    * Click on **Save**
    
-
 You now have the above bucket structure.
 
 ## 2. Create a Kinesis Firehose delivery stream
@@ -57,21 +56,21 @@ In this step we will start streaming data into the S3, using *Kinesis Firehose (
 
 * To create a FH delivery stream, Click on **Create delivery stream**
     * Step 1: Name and source
-        * Delivery stream name : **aws-labseries-demo-stream**
-        * Source : **Direct PUT or other sources**
+        * Delivery stream name: **aws-labseries-demo-stream**
+        * Source: **Direct PUT or other sources**
         * Click **Next**
         
     * Step 2: Process records
-        * Record transformation : Disabled
+        * Record transformation: Disabled
         * Record format conversion: Disabled
         * Click **Next**
         
     * Step 3: Choose destination
-        * Destination : **Amazon S3**
-        * S3 bucket : **YOUR_USERNAME-datalake-demo-bucket**. You can select it from the dropdown. 
-        * Prefix : `data/raw/`  
+        * Destination: **Amazon S3**
+        * S3 bucket: **YOUR_USERNAME-datalake-demo-bucket**. You can select it from the dropdown. 
+        * Backup S3 bucket prefix: `data/raw/`  
             * the backslash `/` after `raw/` is *important*. Without it, your data will land in a outside of the intended folder.
-        * Error prefix : `error/`
+        * Backup S3 bucket error prefix: `error/`
         * Click **Next**
         
     * Step 4: Configure settings
@@ -81,13 +80,8 @@ In this step we will start streaming data into the S3, using *Kinesis Firehose (
         * S3 encryption : **Enabled**
         * KMS master key: (Default)aws/s3
         * Error logging : **Enabled**
-        * Tags (optional): Leave empty
-        * IAM role : Click on **Create new or Choose**
-            * This opens a new Tab to create an IAM Role. An IAM Role is the permission set used by Firehose to managed data.
-            * IAM Role: **Create a new IAM Role**
-            * Role Name: `firehose_delivery_role` (Leave as is)
-            * Click on **Allow**.
-        * You should be back in the Firehose tab. Click on **Next** to Review your setup.
+        * Permissions: Confirm **Create or update IAM role KinesisFirehoseServiceRole-aws-labseries-us-east-1-xxx** is chosen
+        * Click on **Next**
         
     * Step 5: Review
         * Review the configuration as you have set it up. 
@@ -99,13 +93,12 @@ Now, it is time to start streaming data into your s3 bucket.
 
 ---
 
-## 3(A). Generate Dummy Data
+## 3. Generate Dummy Data
 
 In this step we will configure an application, Kinesis Data Generator to generate random data/event streams into our data lake.
 
-* **Configure Amazon Cognito** for Kinesis Data Generator - In this step we will launch a cloud formation stack that will configure Cognito. This cloudformation scripts launches in **Oregon region** (No need to change this region)
-    * Goto : https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&templateURL=https://s3-us-west-2.amazonaws.com/kinesis-helpers/cognito-setup.json
-    * Note that this deploys Resources in the *us-west-2* region
+* **Configure Amazon Cognito** for Kinesis Data Generator - In this step we will launch a cloud formation stack that will configure Cognito.
+    * Goto : https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json
     * Click - **Next**
     * **Specify stack details**. In this step you will create a mock admin for your data generator. Use a simple admin/password combination and keep it handy.
         * Stack name: (autofilled) **Kinesis-Data-Generator-Cognito-User**
@@ -131,9 +124,9 @@ When the Stack info status changes to to **Create_Complete**:
 
 Go to the **Outputs** tab. The Data Generator is deployed on the **KinesisDataGeneratorUrl**.
 
-> [Kinesis Data Generator webpage](https://awslabs.github.io/amazon-kinesis-data-generator/web/producer.html?upid=us-west-2_UwD6AyNOq&ipid=us-west-2:4ea203e4-c4a4-4b1e-a260-4fd17420f67e&cid=6af31pvt8srrhhuvs1vh70thhj&r=us-west-2)
+> [Kinesis Data Generator webpage sample](https://awslabs.github.io/amazon-kinesis-data-generator/web/producer.html?upid=us-east-1_GHRgoM2rL&ipid=us-east-1:7664a686-8373-4762-a867-eb0aa0fb0e89&cid=5efmfcsrq4ooabk4nbvhmqn2jp&r=us-east-1)
 
-Click on this to open the Data Generator.
+Click on your link to open the Data Generator.
 
 * On Amazon Kinesis Data Generator homepage, **Login** with your username & password.
 
@@ -174,14 +167,14 @@ Once the tools send ~ 100,000 messages, you can **Stop sending data to Kinesis**
 
 
 
-## 4(A) Validate that data has arrived in S3
+## 4. Validate that data has arrived in S3
 
 Let's see if Firehose has successfully delivered data to your S3 bucket **YOUR_USERNAME-datalake-demo-bucket**. 
 
 1. Open the S3 Console again: https://s3.console.aws.amazon.com/s3/home?region=us-east-1
    * Note that your region should be back to `us-east-1`
 * Open your bucket **YOUR_USERNAME-datalake-demo-bucket** and the **data** folder.
-* You will find a subfolder called **raw**. Click through the date-partitioned folders (2019 > 09 > 27 > 15) until you find a list of files named *aws-labseries-demo-stream-xx-xx-xx*.
+* You will find a subfolder called **raw**. Click through the date-partitioned folders (2021 > xx > xx > xx) until you find a list of files named *aws-labseries-demo-stream-xx-xx-xx*.
 
 ![Firehose output](./img/firehose-output.png)
 
@@ -208,18 +201,21 @@ Let's try building a dashboard to visualize our log data. How can we find all un
 
 2. Add a data set. Go to Manage Data > New data set > S3
       1. Add a Data Source Name: My Firehose Log Data
-      2. Upload a manifest file. You can use the provided [qs-manifest.json](https://raw.githubusercontent.com/czhc/serverless-datalake-on-aws/master/lab1/qs-manifest.json). Download and edit the manifest file with the correct S3 bucket name.
+      2. Upload a manifest file. You can use the provided [qs-manifest.json](https://raw.githubusercontent.com/ryuumx/serverless-datalake-on-aws/master/lab1/qs-manifest.json). Download and edit the manifest file with the correct S3 bucket name.
       
       ![Edit manifest](./img/qs02-edit-manifest.png)
       
-      3. Upload the file to Quicksight and Connect
+3. Upload the file to Quicksight and Connect
       
-3. Once completed, click Visualize. 
-4. Select a Vertical Bar Chart. What does this graph tell you?
+4. Once completed, click Visualize. 
+
+5. Select a Vertical Bar Chart from bottom-left panel. Select activity_type as X axis from top-left panel. Wait for the data to get imported.
+
+    What does this graph tell you?
 
       ![Chart unfiltered](./img/qs03-unfiltered.png)
 
-5. From the left navigation, select on Filter. Add a filter using the + button.
+6. From the left navigation, select on Filter. Add a filter using the + button.
       1. Select device_id > Filter List > Value `10`
       2. Click Apply
    

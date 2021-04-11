@@ -1,4 +1,4 @@
-# Part 2 : Glue Data Catalog 
+# Part 2 : Catalog Data
 In this Lab, we will explore using Glue for serverless ETL. We will be using the data previously stored in S3: **YOUR_USERNAME-datalake-demo-bucket** and to make it queriable using standard SQL. 
 
 ## 1. Create IAM Role
@@ -31,11 +31,11 @@ Glue Crawlers (not a web crawler) are a way to populate Glue data tables from fi
 In this step, we will create Crawlers to discover the schema and structure of data stored in our S3 bucket.
 
 * Access the Glue console: https://console.aws.amazon.com/glue/home?region=us-east-1
-* On the left navigation panel, click on **Crawlers** >, and then **Add Crawler** to create a crawler.
+* On the left navigation panel, click on **Crawlers**, and then **Add Crawler** to create a crawler.
     * Crawler info
         * Crawler name: **CrawlDataFromKDG**
         * Click - **Next**
-    * Crawler source type: **Data Stores**. 
+        * Crawler source type: **Data Stores**. Repeat crawls of S3 data stores: **Crawl all folders**
     	* Next
     * Choose a data store
         * Data stores: **S3**
@@ -59,10 +59,9 @@ In this step, we will create Crawlers to discover the schema and structure of da
     * Review all steps
         * Review the configuration & make sure its as mentioned above
         * Click - **Finish**
-* You should see a message : *"Crawler **CrawlDataFromKDG** was created to run on demand. Run it now?"*
-    * Click on **Run it now?** to run the crawler immediately.
-    * Wait for few minutes. *Crawler CrawlDataFromKDG is running*
-    * Continue when the crawler Status has changed to *Stopping* and back to *Ready*
+* After the crawler Status has changed to **Ready**, select it and click on **Run crawler** to run the crawler immediately.
+    * Wait for few minutes.
+    * Continue when the crawler Status has changed from *Starting* to *Stopping* and back to *Ready*
     
     ![Crawl Completed](./img/crawl_completed.png)
     
