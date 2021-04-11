@@ -2,8 +2,6 @@
 
 In this module, we are going to setup an Amazon Redshift cluster, and use AWS Glue to load the data into Amazon Redshift. We will learn about several design considerations and best practices on creating and loading data into tables in Redshift, and running queries against it.
 
-![Architecture](../img/unnik-techfest-2019-lab-architecture.png)
-
 ## 1. Create Redshift
 1. Create role:
     * Go to: https://console.aws.amazon.com/iam/home?region=us-east-1#/roles

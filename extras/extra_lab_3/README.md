@@ -2,8 +2,6 @@
 
 In this module we are going to create a Lambda Function with a very specific use case example. The lambda function we are going to write will host the code for Athena to query and fetch Top 5 Popular Songs by Hits from processed data in S3.
 
-![Architecture](.../img/unnik-techfest-2019-lab-architecture.png)
-
 ## 1. Creating a Lambda Function
 1. Go to: https://console.aws.amazon.com/lambda/home?region=us-east-1
 
