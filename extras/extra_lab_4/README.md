@@ -3,7 +3,7 @@
 In this module, we are going to setup an Amazon Redshift cluster, and use AWS Glue to load the data into Amazon Redshift. We will learn about several design considerations and best practices on creating and loading data into tables in Redshift, and running queries against it.
 
 ## 1. Create Redshift
-1. Create role:
+* Create role:
     * Go to: https://console.aws.amazon.com/iam/home?region=us-east-1#/roles
     * Click on **Create role**
     * Select **Redshift**
@@ -14,7 +14,7 @@ In this module, we are going to setup an Amazon Redshift cluster, and use AWS Gl
     * Give Role Name as **RedshiftServiceRoleLab**
     * Click **Create role**
     
-2. Create cluster:
+* Create cluster:
     * Go to: https://console.aws.amazon.com/redshiftv2/home?region=us-east-1
     * Click **Create Cluster**
     * Leave **Cluster identifier** as **redshift-cluster-1**
@@ -32,8 +32,8 @@ In this module, we are going to setup an Amazon Redshift cluster, and use AWS Gl
     * Click **Create Cluster**
     * It will take a few minutes for the cluster to move into the available state. Once the cluster has come up and is in *Available* state, move to the next step
 
-3. Create S3 Gateway Endpoint:
-In this step, we will create [S3 Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html) so that Redshift cluster can communicate with S3 using its private IP.
+* Create S3 Gateway Endpoint:
+    In this step, we will create [S3 Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html) so that Redshift cluster can communicate with S3 using its private IP.
     * Go to: https://console.aws.amazon.com/vpc/home?region=us-east-1#Endpoints:sort=vpcEndpointId
     * Click **Create Endpoint**
     * Select **AWS Services** under **Service category** (which is the default selection)
@@ -47,8 +47,8 @@ In this step, we will create [S3 Gateway Endpoint](https://docs.aws.amazon.com/v
     * Click **Create endpoint**. It should take a couple of seconds to provision this. Once this is ready, you should see *Status* as *Available* against the newly created S3 endpoint.
     * Edit the name of the endpoint and make it **RedshiftS3EP**
 
-4. Verify and add rules to the default security group
-In this step, you will verify and add rules to the Redshift security group so that Glue service can talk to Redshift.
+* Verify and add rules to the default security group
+    In this step, you will verify and add rules to the Redshift security group so that Glue service can talk to Redshift.
     * Go to: https://console.aws.amazon.com/vpc/home?region=us-east-1#SecurityGroups:sort=tag:Name
     * Select the Redshift security group. *It should be the default security if it was not changed during the Redshift cluster creation step*
     * Select the security group (check box at the beginning of the row).
@@ -69,8 +69,8 @@ In this step, you will verify and add rules to the Redshift security group so th
             * Note: A self-referencing rule is required for Glue components to communicate
         * Click **Save rules**
 
-5. Create Redshift connection under Glue Connection
-In this step, we will create a Redshift Connection under Glue connection which we can use in Development Endpoint to establish a connection to Redshift.
+* Create Redshift connection under Glue Connection
+    In this step, we will create a Redshift Connection under Glue connection which we can use in Development Endpoint to establish a connection to Redshift.
     * Go to: https://us-east-1.console.aws.amazon.com/glue/home?region=us-east-1#catalog:tab=connections
     * Click **Add Connection**
     * Give **Connection name** as **awslabs-RedshiftGlueCN**
@@ -88,7 +88,7 @@ In this step, we will create a Redshift Connection under Glue connection which w
         * Select the Glue role which was created in module Catalog Data (**AWSGlueServiceRoleLab**)
         * Click **Test Connection**. This process will take a few moments. Successful connection should display the following message: **"awslabs-RedshiftGlueCN connected successfully to your instance"**
 
-6. Create schema and redshift tables
+* Create schema and redshift tables
     * Go to: https://us-east-1.console.aws.amazon.com/redshiftv2/home?region=us-east-1#query-editor
     * Enter the appropriate database connection details
     * Click **Connect**
@@ -126,8 +126,8 @@ In this step, we will create a Redshift Connection under Glue connection which w
 
 ## 2. Transform and load data into Redshift
 
-1. Create Glue Development Endpoint 
-In this step, you will be creating a Glue Dev Endpoint to interactively develop Glue ETL scripts using PySpark
+* Create Glue Development Endpoint 
+    In this step, you will be creating a Glue Dev Endpoint to interactively develop Glue ETL scripts using PySpark
 
     * Go to: https://console.aws.amazon.com/glue/home?region=us-east-1#etl:tab=devEndpoints
     * Click **Add endpoint**
@@ -144,7 +144,7 @@ In this step, you will be creating a Glue Dev Endpoint to interactively develop 
         * Review the settings. Click **Finish**
     * It will take close to 10 minutes for the new Glue development endpoint to spin up. You have to wait for this step to complete before moving to next step.
 
-2. Create SageMaker Notebooks (Jupyter) for Glue Dev Endpoints
+* Create SageMaker Notebooks (Jupyter) for Glue Dev Endpoints
     * Go to: https://console.aws.amazon.com/glue/home?region=us-east-1#etl:tab=notebooks
     * Select **Sagemaker notebooks** tab
     * Click **Create notebook**
@@ -155,7 +155,7 @@ In this step, you will be creating a Glue Dev Endpoint to interactively develop 
     * Click **Create Notebook**
     * This will take few minutes, wait for this to finish.
 
-3. Launch Jupyter Notebook
+* Launch Jupyter Notebook
     * Download and save this file locally on your laptop: [redshift-notebook.ipynb](https://raw.githubusercontent.com/ryuumx/serverless-datalake-on-aws/master/extras/extra_lab_4/redshift-notebook.ipynb)
     * Go to: https://console.aws.amazon.com/glue/home?region=us-east-1#etl:tab=notebooks
     * Click **aws-glue-notebook2**
@@ -168,90 +168,90 @@ In this step, you will be creating a Glue Dev Endpoint to interactively develop 
         * Follow the instructions on the notebook
         * Read and understand the instructions, they explain important Glue concepts
 
-4. Validate - Transformed / Processed data has arrived in Redshift
-* Once the ETL script has ran successfully, go to: https://us-east-1.console.aws.amazon.com/redshiftv2/home?region=us-east-1#query-editor
+* Validate - Transformed / Processed data has arrived in Redshift
+    * Once the ETL script has ran successfully, go to: https://us-east-1.console.aws.amazon.com/redshiftv2/home?region=us-east-1#query-editor
 
-* Execute the following queries to check the number of records in raw and reference data table
+    * Execute the following queries to check the number of records in raw and reference data table
 
-```
-select count(1) from redshift_lab.f_raw_1;
+    ```
+    select count(1) from redshift_lab.f_raw_1;
 
-select count(1) from redshift_lab.d_ref_data_1;
+    select count(1) from redshift_lab.d_ref_data_1;
 
-```
+    ```
 
-5. Try out some queries
-You have successfully loaded data from S3 to Redshift using Glue serverless ETL. Some queries to try:
+* Try out some queries
+    You have successfully loaded data from S3 to Redshift using Glue serverless ETL. Some queries to try:
 
-```
-select 
+    ```
+    select 
   track_name, 
   artist_name, 
   count(1) frequency
-from 
+  from 
   redshift_lab.f_raw_1 fr
-inner join 
+  inner join 
   redshift_lab.d_ref_data_1 drf
-on 
+  on 
   fr.track_id = drf.track_id
-where 
+  where 
   activity_type = 'Running'
-group by 
+  group by 
   track_name, artist_name
-order by 
+  order by 
   frequency desc
-limit 10;
+  limit 10;
 
-```
+    ```
 
 
 ## Extra credits
-1. String column size
-* Check maximum length of string based columns.
-    * All string based columns should be allocated not more than required precision. It helps reduce storage on the cluster and also improves query performance when you use these columns in query by consuming less memory. 
-```
-select max(len(uuid)) as uuid_len, max(len(activity_type)) as activity_type_len from redshift_lab.f_raw_1;
+* String column size
+    * Check maximum length of string based columns.
+        * All string based columns should be allocated not more than required precision. It helps reduce storage on the cluster and also improves query performance when you use these columns in query by consuming less memory. 
+    ```
+        select max(len(uuid)) as uuid_len, max(len(activity_type)) as activity_type_len from redshift_lab.f_raw_1;
       
-select max(len(track_name)) as uuid_len, max(len(artist_name)) as activity_type_len from redshift_lab.d_ref_data_1;
+      select max(len(track_name)) as uuid_len, max(len(artist_name)) as activity_type_len from redshift_lab.d_ref_data_1;
 
-```
-* Results from above query will be used in determining new precision for string based columns.
-    * Generally, a buffer is maintained while defining column precisions or column precision can be fixed, if its a standard attribute where column precision is known. Example: A Fully Qualified Domain Name
-* Read more about limiting column sizes here: https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-smallest-column-size.html
+    ```
+    * Results from above query will be used in determining new precision for string based columns.
+        * Generally, a buffer is maintained while defining column precisions or column precision can be fixed, if its a standard attribute where column precision is known. Example: A Fully Qualified Domain Name
+        * Read more about limiting column sizes here: https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-smallest-column-size.html
 
-2. Compression
-* Check appropriate encoding algorithm on each of the tables to implement compression.
-    * Compression is a column-level operation that reduces the size of data when it is stored. Compression conserves storage space and reduces the size of data that is read from storage, which reduces the amount of disk I/O and therefore improves query performance.
-    * Lets focus on fact table **f_raw_1**
-```
-analyze compression redshift_lab.f_raw_1;
+* Compression
+    * Check appropriate encoding algorithm on each of the tables to implement compression.
+        * Compression is a column-level operation that reduces the size of data when it is stored. Compression conserves storage space and reduces the size of data that is read from storage, which reduces the amount of disk I/O and therefore improves query performance.
+        * Lets focus on fact table **f_raw_1**
+    ```
+        analyze compression redshift_lab.f_raw_1;
 
-```
-* Results from above table provides the following info for each of the columns:
-    * **Encoding**: Recommended encoding based on column precision type and values
-    * **Est_reduction_pct**: Estimated reduction percentage if the recommended encoding is implemented
-* Note: Do not encode/compress sort keys. Highly compressed sort keys mean many rows per block which in turn means more blocks are scanned than needed.
-* Read more on Redshift compression here: https://docs.aws.amazon.com/redshift/latest/dg/t_Compressing_data_on_disk.html   
-* Read more on automatically enabling compression while loading data into Redshift here: https://docs.aws.amazon.com/redshift/latest/dg/c_Loading_tables_auto_compress.html
+    ```
+    * Results from above table provides the following info for each of the columns:
+        * **Encoding**: Recommended encoding based on column precision type and values
+        * **Est_reduction_pct**: Estimated reduction percentage if the recommended encoding is implemented
+    * Note: Do not encode/compress sort keys. Highly compressed sort keys mean many rows per block which in turn means more blocks are scanned than needed.
+    * Read more on Redshift compression here: https://docs.aws.amazon.com/redshift/latest/dg/t_Compressing_data_on_disk.html   
+    * Read more on automatically enabling compression while loading data into Redshift here: https://docs.aws.amazon.com/redshift/latest/dg/c_Loading_tables_auto_compress.html
 
-3. Distribution Style 
-* Use **KEY** based distribution for the fact table **f_raw_1**
-    * Since the two tables (**f_raw_1** and **d_ref_data_1**) need to be joined on **track_id** column, chose **track_id** as the distribution key.
-* Use **ALL** distribution for the dimension table - **d_ref_data_1**
-* Read more about Redshift distribution style best practices here: https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-best-dist-key.html
+* Distribution Style 
+    * Use **KEY** based distribution for the fact table **f_raw_1**
+        * Since the two tables (**f_raw_1** and **d_ref_data_1**) need to be joined on **track_id** column, chose **track_id** as the distribution key.
+    * Use **ALL** distribution for the dimension table - **d_ref_data_1**
+    * Read more about Redshift distribution style best practices here: https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-best-dist-key.html
 
-4. Sort Keys 
-* In queries from data consumers, the **activity_type** attribute has been used for equality filtering, so this attribute can be chosen as the sort column.
-* Read more on Redshift sort keys best practices here: https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-sort-key.html
-* Read more about Amazon Redshift best practices here: https://docs.aws.amazon.com/redshift/latest/dg/best-practices.html
+* Sort Keys 
+    * In queries from data consumers, the **activity_type** attribute has been used for equality filtering, so this attribute can be chosen as the sort column.
+    * Read more on Redshift sort keys best practices here: https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-sort-key.html
+    * Read more about Amazon Redshift best practices here: https://docs.aws.amazon.com/redshift/latest/dg/best-practices.html
 
-5. New Table DDL
-Based on all the observations above:
-Create new set of tables using the DDL of **f_raw_2** and **d_ref_data_2** below: 
+* New Table DDL
+    Based on all the observations above:
+    Create new set of tables using the DDL of **f_raw_2** and **d_ref_data_2** below: 
 
-```
---fact table ddl
-CREATE TABLE IF NOT EXISTS redshift_lab.f_raw_2 (
+    ```
+    --fact table ddl
+    CREATE TABLE IF NOT EXISTS redshift_lab.f_raw_2 (
   uuid            varchar(40) ENCODE zstd,
   device_ts         timestamp,
   device_id        int ENCODE az64,
@@ -259,77 +259,78 @@ CREATE TABLE IF NOT EXISTS redshift_lab.f_raw_2 (
   track_id        int ENCODE az64,
   activity_type        varchar(16) ENCODE bytedict sortkey,
   load_time        int ENCODE zstd
-)
-DISTKEY(track_id);
+  )
+  DISTKEY(track_id);
   
---dimension table ddl
-CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_2 (
+  --dimension table ddl
+  CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_2 (
   track_id        int,
   track_name        varchar(64),
   artist_name        varchar(64)
-)
-DISTSTYLE ALL;
+  )
+  DISTSTYLE ALL;
 
-```
+    ```
 
-6. Copy data to new set of tables 
+* Copy data to new set of tables 
 
-Since, all the data in **f_raw_1** and **d_ref_data_1** already exists, use deep copy to copy the data from old tables to new tables.
+    Since, all the data in **f_raw_1** and **d_ref_data_1** already exists, use deep copy to copy the data from old tables to new tables.
 
-Execute following SQL statements to copy the data from old tables to new tables. 
+    Execute following SQL statements to copy the data from old tables to new tables. 
 
-```
---copy data from f_raw_1 to f_raw_2
-insert into redshift_lab.f_raw_2 select * from redshift_lab.f_raw_1;
+    ```
+    --copy data from f_raw_1 to f_raw_2
+    insert into redshift_lab.f_raw_2 select * from redshift_lab.f_raw_1;
   
---copy data from d_ref_data_1 to d_ref_data_2
-INSERT into redshift_lab.d_ref_data_2 select * from redshift_lab.d_ref_data_1; 
+    --copy data from d_ref_data_1 to d_ref_data_2
+    INSERT into redshift_lab.d_ref_data_2 select * from redshift_lab.d_ref_data_1; 
 
-```
+    ```
 
-7. Run Vacuum and Analyze 
-*VACUUM*: Re-sorts rows and reclaims space in either a specified table or all tables in the current database
+* Run Vacuum and Analyze 
+    *VACUUM*: Re-sorts rows and reclaims space in either a specified table or all tables in the current database
 
-*ANALYZE*: Updates table statistics for use by the query planner
+    *ANALYZE*: Updates table statistics for use by the query planner
 
-```
-vacuum redshift_lab.f_raw_2;
-analyze redshift_lab.f_raw_2;  
-vacuum redshift_lab.d_ref_data_2;
-analyze redshift_lab.d_ref_data_2;
+    ```
+    vacuum redshift_lab.f_raw_2;
+    analyze redshift_lab.f_raw_2;  
+    vacuum redshift_lab.d_ref_data_2;
+    analyze redshift_lab.d_ref_data_2;
 
-```
-* Read more about Redshift VACUUM here: https://docs.aws.amazon.com/redshift/latest/dg/r_VACUUM_command.html
+    ```
+    * Read more about Redshift VACUUM here: https://docs.aws.amazon.com/redshift/latest/dg/r_VACUUM_command.html
 
-* Read more about Redshift ANALYZE here: https://docs.aws.amazon.com/redshift/latest/dg/r_ANALYZE.html
+    * Read more about Redshift ANALYZE here: https://docs.aws.amazon.com/redshift/latest/dg/r_ANALYZE.html
 
-8. Execute Queries 
-Re-execute the below query used by data consumers on newly created tables.
+* Execute Queries 
+    Re-execute the below query used by data consumers on newly created tables.
 
-```
---Top 10 tracks and corresponding artists for a particular activity type. 
-select 
+    ```
+    --Top 10 tracks and corresponding artists for a particular activity type. 
+    select 
   track_name, 
   artist_name, 
   count(1) frequency
-from 
+  from 
   redshift_lab.f_raw_2 fr
-inner join 
+  inner join 
   redshift_lab.d_ref_data_2 drf
-on 
+  on 
   fr.track_id = drf.track_id
-where 
+  where 
   activity_type = 'Running'
-group by 
+  group by 
   track_name, artist_name
-order by 
+  order by 
   frequency desc
-limit 10;
+  limit 10;
 
-```
-If you need to try this out with more data, generate more data in S3 bucket from the first module - **Ingest and Store** and load the data again from Glue Notebook. Make sure you truncate existing data in all the tables using:
+    ```
+    
+    If you need to try this out with more data, generate more data in S3 bucket from the first module - **Ingest and Store** and load the data again from Glue Notebook. Make sure you truncate existing data in all the tables using:
 
-```
-truncate table <schema name>.<table name>;
+    ```
+    truncate table <schema name>.<table name>;
 
-```
+    ```

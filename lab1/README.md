@@ -33,10 +33,10 @@ We will use this folder structure for this lab series.
 
 To create a subfolder, 
 
-1. Click on the bucket name: **YOUR_USERNAME-datalake-demo-bucket**
-2. You are now looking at the contents of your bucket. It is currently empty.
-3. Click on **:heavy_plus_sign: Create folder**
-4. Enter the value `data` into the text field. 
+* Click on the bucket name: **YOUR_USERNAME-datalake-demo-bucket**
+* You are now looking at the contents of your bucket. It is currently empty.
+* Click on **:heavy_plus_sign: Create folder**
+* Enter the value `data` into the text field. 
    * You can choose *AES-256* SSE with Amazon S3-Managed Keys for this step
    * Click on **Save**
    
