@@ -88,7 +88,7 @@ In this step you will be creating a transformation to join and filter the `raw` 
 	* Go to Tables. You should now have a new table `processed` with the correct S3 location and classification: `parquet`
 
 
-## Validate - Transformed / Processed data has arrived in S3
+## 3. Validate - Transformed / Processed data has arrived in S3
 
 Once the ETL script has ran successfully, you can inspect the output of the Glue job 
 
@@ -98,7 +98,7 @@ Once the ETL script has ran successfully, you can inspect the output of the Glue
 ![output data](./img/processed_data.png)
 
 
-## 3. Create a scheduled transformation with Glue Workflow
+## 4. Create a scheduled transformation with Glue Workflow
 
 In this step, we will create a Workflow to execute our Job
 

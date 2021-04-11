@@ -8,8 +8,13 @@ Forked from Author: [Unni Pillai](github.com/unnipillai/techfest-building-server
 * Build a data processing pipeline and Data Lake using Amazon S3 for storing data
 * Use Amazon Kinesis for real-time streaming data
 * Use AWS Glue to automatically catalog datasets
-* Run interactive ETL scripts (in an Amazon SageMaker Jupyter notebook) connected to an AWS Glue development endpoint
+* Run interactive ETL scripts on AWS Glue using Spark (or in an Amazon SageMaker Jupyter notebook connected to an AWS Glue development endpoint)
 * Query data using Amazon Athena & visualize it using Amazon QuickSight
+* Extra
+    * Use the serverless datalake architecture to monitor system logs
+    * Build secured, fine-grain governance with Lake Formation
+    * Integrate data pipeline and query result using serverless compute (Lambda)
+    * Build datawarehouse on Redshift
 
 # Pre-requisites:  
 * You need to have access to an AWS account with **AdminstratorAccess**
@@ -69,12 +74,4 @@ Make sure you bring down / delete all resources created as part of this lab
 * Close QuickSight account
 	* GoTo: https://us-east-1.quicksight.aws.amazon.com/sn/admin#permissions
 	* Click: **Unsubscribe**
-* [extra] VPC Endpoint: 
-	* GoTo: https://console.aws.amazon.com/vpc/home?region=us-east-1#Endpoints:sort=vpcEndpointId
-
-* [extra] RDS clusters: 
-	* GoTo: https://console.aws.amazon.com/rds/home?region=us-east-1#databases:
-	
-* [extra] Elastic IPs: 
-	* GoTo: https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#SecurityGroups:sort=groupId
-	
+* [extra]

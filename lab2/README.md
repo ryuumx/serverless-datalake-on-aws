@@ -18,7 +18,7 @@ Glue will also require permissions to create additional entities and datasets in
 	    * Leave as default, no changes here
     * Click - **Next: Review**
     * Role name: **AWSGlueServiceRoleLab**
-    * make sure that are two policies attached to this role (**AmazonS3FullAccess**, **AWSGlueServiceRole**)
+    * Make sure that are two policies attached to this role (**AmazonS3FullAccess**, **AWSGlueServiceRole**)
     * Click - **Create role**
     ![GlueRolePermissions](./img/GlueRolePolicies.png)
 

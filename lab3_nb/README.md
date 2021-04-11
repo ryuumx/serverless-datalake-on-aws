@@ -41,8 +41,8 @@ In this step you will be creating a glue endpoint to interactively develop Glue 
 * Click - **Add endpoint**
   * Development endpoint name - **DevEndpoint1**
     * IAM role - **AWSGlueServiceRoleLab**
-    * Expand - **Security configuration.. parameters**
-      * Data processing units (DPUs): **2** (this affects the cost of the running this lab)
+    * Expand - **Security configuration** parameters
+      * **Data processing units (DPUs)**: **2** (this affects the cost of the running this lab)
       * A single Data Processing Unit (DPU) provides 4 vCPU and 16 GB of memory.
   * Click - **Next**
   * Networking screen :
@@ -68,14 +68,13 @@ In this step, we will launch notebook instances to use as our workspace. We will
   * Attach to development endpoint: **devendpoint1**
   * Choose: **Create an IAM role**
   * IAM Role: *AWSGlueServiceSageMakerNotebookRole*-**default**
-  * VPC (optional): Leave blank
-  * Encryption key (optional): Leave blank
+  * Leave the rest as blank
   * Click: **Create Notebook**
 
 This will take few minutes. Wait for the notebook instance to be *Ready*.
 In the meantime, check out the [differences](https://docs.aws.amazon.com/glue/latest/dg/notebooks-with-glue.html) between Sagemaker and Zeppelin instances.
 
-## Upload a Jupyter Notebook on your SageMaker instance
+## 4. Upload a Jupyter Notebook on your SageMaker instance
 
 - Download and save this file locally on your laptop: [datalake-notebook.ipynb](https://raw.githubusercontent.com/ryuumx/serverless-datalake-on-aws/master/lab3/datalake-notebook.ipynb)
 
@@ -93,14 +92,14 @@ In the meantime, check out the [differences](https://docs.aws.amazon.com/glue/la
     This is the name of the kernel Jupyter will use to execute code blocks in this notebook
 
 
-## 4. Follow the instructions on the notebook**
+## 5. Follow the instructions on the notebook**
 
 The SageMaker notebook takes you through how to load, transform and write output data using Glue APIs and DynamicFrames.
 Read and understand the instructions as they explain important Glue concepts.
 
 
 
-## Validate - Transformed / Processed data has arrived in S3
+## 6. Validate - Transformed / Processed data has arrived in S3
 
 Once the ETL script has ran successfully, you can inspect the output of the SparkSQL transformations.
 

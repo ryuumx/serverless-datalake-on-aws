@@ -91,8 +91,6 @@ You have now created a Firehose delivery stream that writes to an S3 bucket *YOU
 Now, it is time to start streaming data into your s3 bucket.
 
 
----
-
 ## 3. Generate Dummy Data
 
 In this step we will configure an application, Kinesis Data Generator to generate random data/event streams into our data lake.
@@ -226,8 +224,6 @@ Let's try building a dashboard to visualize our log data. How can we find all un
       ![Filtered](./img/qs03-filtered.png)
 
 
-
-
 ## More Credits
 
 1. Create your own custom data template to generate data streams similar to your current project applications. KDG extends from [Faker.js](https://github.com/marak/Faker.js/). You can use this to generate stub names, timestamps, addresses etc.
@@ -236,7 +232,6 @@ Let's try building a dashboard to visualize our log data. How can we find all un
    * Python Client Library Integration Sample [:arrow_forward:](https://docs.aws.amazon.com/code-samples/latest/catalog/python-kinesis-firehose_to_s3.py.html)
    * Configuring Kinesis Agent in Linux [:arrow_forward:](https://docs.aws.amazon.com/firehose/latest/dev/writing-with-agents.html)
    * Configuring Kinesis Agent in Windows [:arrow_forward:](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/getting-started.html#getting-started-installation) 
-   
-# You're done!
+
 
 
