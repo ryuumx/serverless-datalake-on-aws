@@ -14,8 +14,8 @@ You will be using Glue to perform basic transformations such as filtering and jo
 ## 1. Upload and Crawl a Reference Dataset
 In this step, you will upload and crawl a new Glue dataset from a manual JSON file.
 
-* Open your S3 Bucket **YOUR_USERNAME-datalake-demo-bucket*: https://s3.console.aws.amazon.com/s3/home?region=us-east-1#
-* Open the subfolder **data**, and create a subfolder called **reference_data**. Your bucket should look like this: 
+* Open your S3 Bucket **YOUR_USERNAME-datalake-demo-bucket**: [S3 Console]( https://s3.console.aws.amazon.com/s3/home?region=us-east-1#)
+* Open the subfolder **data**, and create a subfolder called **reference**. Your bucket should look like this: 
 
 ```
     *--YOUR_USERNAME-datalake-demo-bucket

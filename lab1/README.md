@@ -6,7 +6,7 @@ In this step, we will navigate to S3 Console and create the S3 bucket used throu
 
 First, navigate to S3 Console & create a new bucket in us-east-1 region :
 
-* Open the s3 console: https://s3.console.aws.amazon.com/s3/home?region=us-east-1
+* Open the [S3 console]( https://s3.console.aws.amazon.com/s3/home?region=us-east-1)
 * Click on **:heavy_plus_sign: Create bucket**
     * Bucket Name: **YOUR_USERNAME-datalake-demo-bucket**
     * Region: **US EAST (N. Virginia)**
@@ -96,7 +96,7 @@ Now, it is time to start streaming data into your s3 bucket.
 In this step we will configure an application, Kinesis Data Generator to generate random data/event streams into our data lake.
 
 * **Configure Amazon Cognito** for Kinesis Data Generator - In this step we will launch a cloud formation stack that will configure Cognito.
-    * Goto : https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json
+    * Go to:  https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json
     * Click - **Next**
     * **Specify stack details**. In this step you will create a mock admin for your data generator. Use a simple admin/password combination and keep it handy.
         * Stack name: (autofilled) **Kinesis-Data-Generator-Cognito-User**

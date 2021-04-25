@@ -6,14 +6,14 @@ In this step we will visualize your datasets using QuickSight
 
 Login to Amazon Quick Sight Console & complete the registration & sign-up
 
-* GoTo: https://us-east-1.quicksight.aws.amazon.com/sn/start
+* GoTo: [Quicksight Console](https://us-east-1.quicksight.aws.amazon.com/sn/start)
 * You may be asked to Sign Up for Quicksight. Proceed to Create your QuickSight account with an Enterprise plan.
 * Create your QuickSight account:
     * Edition: **Use Role Based Federation(SSO)**
     * QuickSight region: **US East (N. Virginia)**
     * QuickSight account name: **YOUR_USERNAME**
     * Check the following:
-        * Enable autodiscover of data and users in your Amazon Redshift....
+        * Enable autodiscover of data and users in your Amazon Redshift.
         * Amazon Athena
         * Amazon S3: Select **YOUR_USERNAME-datalake-demo-bucket** > **Select buckets**
         * **Go to Amazon Quicksight**

@@ -4,7 +4,7 @@ In this module, we are going to setup an Amazon Redshift cluster, and use AWS Gl
 
 ## 1. Create Redshift
 * Create role:
-    * Go to: https://console.aws.amazon.com/iam/home?region=us-east-1#/roles
+    * Go to: [IAM Console]( https://console.aws.amazon.com/iam/home?region=us-east-1#/roles)
     * Click on **Create role**
     * Select **Redshift**
     * Select **Redshift - customizable** under **Select your use case**
@@ -15,7 +15,7 @@ In this module, we are going to setup an Amazon Redshift cluster, and use AWS Gl
     * Click **Create role**
     
 * Create cluster:
-    * Go to: https://console.aws.amazon.com/redshiftv2/home?region=us-east-1
+    * Go to: [Redshift Console]( https://console.aws.amazon.com/redshiftv2/home?region=us-east-1)
     * Click **Create Cluster**
     * Leave **Cluster identifier** as **redshift-cluster-1**
     * Select **dc2.large** as **Node Type**
@@ -34,7 +34,7 @@ In this module, we are going to setup an Amazon Redshift cluster, and use AWS Gl
 
 * Create S3 Gateway Endpoint:
     In this step, we will create [S3 Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html) so that Redshift cluster can communicate with S3 using its private IP.
-    * Go to: https://console.aws.amazon.com/vpc/home?region=us-east-1#Endpoints:sort=vpcEndpointId
+    * Go to: [VPC Console]( https://console.aws.amazon.com/vpc/home?region=us-east-1#Endpoints:sort=vpcEndpointId)
     * Click **Create Endpoint**
     * Select **AWS Services** under **Service category** (which is the default selection)
     * Under Service name search box, search for “s3” and hit enter/return
@@ -49,7 +49,7 @@ In this module, we are going to setup an Amazon Redshift cluster, and use AWS Gl
 
 * Verify and add rules to the default security group
     In this step, you will verify and add rules to the Redshift security group so that Glue service can talk to Redshift.
-    * Go to: https://console.aws.amazon.com/vpc/home?region=us-east-1#SecurityGroups:sort=tag:Name
+    * Go to: [VPC Console]( https://console.aws.amazon.com/vpc/home?region=us-east-1#SecurityGroups:sort=tag:Name)
     * Select the Redshift security group. *It should be the default security if it was not changed during the Redshift cluster creation step*
     * Select the security group (check box at the beginning of the row).
     * Click **Inbound Rules**
@@ -71,7 +71,7 @@ In this module, we are going to setup an Amazon Redshift cluster, and use AWS Gl
 
 * Create Redshift connection under Glue Connection
     In this step, we will create a Redshift Connection under Glue connection which we can use in Development Endpoint to establish a connection to Redshift.
-    * Go to: https://us-east-1.console.aws.amazon.com/glue/home?region=us-east-1#catalog:tab=connections
+    * Go to: [Glue Console]( https://us-east-1.console.aws.amazon.com/glue/home?region=us-east-1#catalog:tab=connections)
     * Click **Add Connection**
     * Give **Connection name** as **awslabs-RedshiftGlueCN**
     * Choose **Connection type** as **Amazon Redshift**
@@ -89,7 +89,7 @@ In this module, we are going to setup an Amazon Redshift cluster, and use AWS Gl
         * Click **Test Connection**. This process will take a few moments. Successful connection should display the following message: **"awslabs-RedshiftGlueCN connected successfully to your instance"**
 
 * Create schema and redshift tables
-    * Go to: https://us-east-1.console.aws.amazon.com/redshiftv2/home?region=us-east-1#query-editor
+    * Go to: [Redshift Console]( https://us-east-1.console.aws.amazon.com/redshiftv2/home?region=us-east-1#query-editor)
     * Enter the appropriate database connection details
     * Click **Connect**
     * Execute the queries below to create schema and tables for raw and reference data
@@ -129,7 +129,7 @@ In this module, we are going to setup an Amazon Redshift cluster, and use AWS Gl
 * Create Glue Development Endpoint 
     In this step, you will be creating a Glue Dev Endpoint to interactively develop Glue ETL scripts using PySpark
 
-    * Go to: https://console.aws.amazon.com/glue/home?region=us-east-1#etl:tab=devEndpoints
+    * Go to: [Glue Console]( https://console.aws.amazon.com/glue/home?region=us-east-1#etl:tab=devEndpoints)
     * Click **Add endpoint**
         * Development endpoint name: **devendpoint2**
         * IAM role: **AWSGlueServiceRoleLab**
@@ -145,7 +145,7 @@ In this module, we are going to setup an Amazon Redshift cluster, and use AWS Gl
     * It will take close to 10 minutes for the new Glue development endpoint to spin up. You have to wait for this step to complete before moving to next step.
 
 * Create SageMaker Notebooks (Jupyter) for Glue Dev Endpoints
-    * Go to: https://console.aws.amazon.com/glue/home?region=us-east-1#etl:tab=notebooks
+    * Go to: [Glue Console]( https://console.aws.amazon.com/glue/home?region=us-east-1#etl:tab=notebooks)
     * Select **Sagemaker notebooks** tab
     * Click **Create notebook**
     * Notebook name: aws-glue-**notebook2**
