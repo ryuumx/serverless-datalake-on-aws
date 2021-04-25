@@ -35,6 +35,7 @@ Forked from Author: [Unni Pillai](github.com/unnipillai/techfest-building-server
 |Extra 2: Secure on Lake Formation |[Open Lab :arrow_forward:](./extras/extra_lab_2)|
 |Extra 3: Serve with Lambda |[Open Lab :arrow_forward:](./extras/extra_lab_3)|
 |Extra 4: Warehouse on Redshift |[Open Lab :arrow_forward:](./extras/extra_lab_4)|
+|Extra 5: Transform Data with EMR |[Open Lab :arrow_forward:](./extras/extra_lab_5)|
 
 # Clean Up
 
